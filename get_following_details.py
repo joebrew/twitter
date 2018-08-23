@@ -5,7 +5,7 @@ import sys
 print ("The arguments are: " , str(sys.argv))
 
 user = sys.argv[1]
-file_name = str(user) + '_is_following.csv'
+file_name = 'data/' + str(user) + '_is_following.csv'
 
 print('user is ', user)
 print('file name is ', file_name)
