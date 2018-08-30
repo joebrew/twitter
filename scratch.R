@@ -8,7 +8,7 @@ source('follow.R')
 source('follow_and_unfollow.R')
 source('download_all_tweets.R')
 
-person <- 'boye_g'
+person <- 'joethebrew'
 
 # Get a list of people whom Rivera follows
 # system(paste0('python3 get_following_details.py ', person))
@@ -23,6 +23,8 @@ person_is_followed_by <- read_csv(paste0('data/', person, '_is_followed_by_simpl
 i_follow <- read_csv('data/joethebrew_is_following.csv') %>%
   mutate(p = followers / following) %>%
   arrange(desc(followers))
+they_follow_me <- read_csv('data/joethebrew_is_followed_by.csv') %>%
+  dplyr::distinct(id, .keep_all = TRUE)
 
 # Get the usernames of those who I don't already follow
 to_follow <- person_is_followed_by %>%
